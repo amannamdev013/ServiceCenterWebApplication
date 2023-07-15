@@ -1,0 +1,32 @@
+const mongoose = require('mongoose');
+const passportLocalMongoose = require("passport-local-mongoose");
+// Define the user schema
+const userSchema = new mongoose.Schema({
+  firstName: {
+    type: String,
+    required: true
+  },
+  lastName: {
+    type: String,
+    required: true
+  },
+  mobileNumber: {
+    type: String,
+    required: true
+  },
+  address: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true
+  }
+});
+
+userSchema.plugin(passportLocalMongoose, {
+  usernameField: 'email' // Specify the field to use as the username (in your case, email)
+});
+const User = mongoose.model('User', userSchema);
+module.exports = User;

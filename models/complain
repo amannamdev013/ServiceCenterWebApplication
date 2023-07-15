@@ -1,0 +1,45 @@
+const mongoose = require('mongoose');
+const passportLocalMongoose = require("passport-local-mongoose");
+
+const complainSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    required: true
+  },
+  itemName: {
+    type: String,
+    required: true
+  },
+  brandName: {
+    type: String,
+    required: true
+  },
+  modelNo: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  underWarranty: {
+    type: String,
+    enum: ['yes', 'no'],
+    required: true
+  },
+  timing: {
+    type: String,
+    required: true
+  },
+  status: {
+    type: String,
+    default: 'pending'
+  }
+  
+});
+
+complainSchema.plugin(passportLocalMongoose);
+
+const Complain = mongoose.model('Complain', complainSchema);
+
+module.exports = Complain;
