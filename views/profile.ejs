@@ -1,0 +1,16 @@
+<!-- profile.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Profile</title>
+  <link rel="stylesheet" type="text/css" href="profile.css">
+</head>
+<body>
+    <%- include('navbar') %>
+    <h1>Welcome, <%= user.firstName %> <%= user.lastName %>!</h1>
+    <p>Email: <%= user.email %></p>
+    <p>Mobile Number: <%= user.mobileNumber %></p>
+    <p>Address: <%= user.address %></p>
+  <!-- Display user-specific information here -->
+</body>
+</html>

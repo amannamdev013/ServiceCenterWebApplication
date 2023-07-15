@@ -1,0 +1,35 @@
+<!-- current_complain.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Current Complains</title>
+</head>
+<body>
+    <%- include('navbar') %>
+  <h1>Active Complains</h1>
+
+  <% if (complains.length > 0) { %>
+    <ul>
+      <% complains.forEach(complain => { %>
+        <li>
+          <strong>Item Name:</strong> <%= complain.itemName %><br>
+          <strong>Brand Name:</strong> <%= complain.brandName %><br>
+          <strong>Model No:</strong> <%= complain.modelNo %><br>
+          <strong>Description:</strong> <%= complain.description %><br>
+          <strong>Under Warranty:</strong> <%= complain.underWarranty %><br>
+          <strong>Timing:</strong> <%= complain.timing %><br>
+          <strong>Status:</strong> <%= complain.status %><br>
+        </li>
+        <br>
+        <hr>
+        <br>
+      <% }); %>
+    </ul>
+  <% } else { %>
+    <p>No Active complains.</p>
+  <% } %>
+</body>
+</html>

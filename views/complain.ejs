@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Complain Form</title>
+  <style>
+    html, body {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .container {
+      width: 500px;
+      padding: 60px;
+      background-color: whitesmoke;
+      border-radius: 5px;
+    }
+    
+    .container h1 {
+      text-align: center;
+      margin-top: 0;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    
+    input[type="text"],
+    textarea,
+    input[type="time"],
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+    }
+    
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+    
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+    
+  <div class="container">
+    <h1>Welcome, <%= user.firstName %> <%= user.lastName %>!</h1>
+    <!-- <h3>You can raise your Complain here.</h3> -->
+    <h1>Complain Form</h1>
+  
+    <form action="/complain" method="POST">
+      <label for="itemName">Item Name:</label>
+      <input type="text" id="itemName" name="itemName" required>
+    
+      <label for="brandName">Brand Name:</label>
+      <input type="text" id="brandName" name="brandName" required>
+    
+      <label for="modelNo">Model No:</label>
+      <input type="text" id="modelNo" name="modelNo" required>
+    
+      <label for="description">Description of Complain:</label>
+      <textarea id="description" name="description" rows="5" cols="50" required></textarea>
+    
+      <label for="underWarranty">Under Warranty:</label>
+      <input type="radio" id="yes" name="underWarranty" value="yes" required>
+      <label for="yes">Yes</label>
+      <input type="radio" id="no" name="underWarranty" value="no" required>
+      <label for="no">No</label>
+    
+      <label for="timing">Timing when you will be free:</label>
+      <input type="time" id="timing" name="timing" required>
+    
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</body>
+</html>
